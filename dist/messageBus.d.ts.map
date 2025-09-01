@@ -1,0 +1,1 @@
+{"version":3,"file":"messageBus.d.ts","sourceRoot":"","sources":["../src/messageBus.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,QAAQ,CAAC;AACtC,OAAO,EAAE,OAAO,EAAE,MAAM,kBAAkB,CAAC;AAE3C,qBAAa,UAAW,SAAQ,YAAY;IAC1C,IAAI,CAAC,OAAO,EAAE,OAAO;IAKrB,SAAS,CAAC,OAAO,EAAE,OAAO;CAI3B"}
