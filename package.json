@@ -1,18 +1,50 @@
 {
-  "name": "feral-code-mk2",
-  "version": "1.0.0",
+  "name": "feral-code",
+  "version": "0.4.0",
+  "description": "Cutting-edge multi-agent coding assistant with LLM integration and comprehensive testing",
   "main": "dist/index.js",
+  "bin": {
+    "feral-code": "dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build && npm test",
+    "clean": "rm -rf dist"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "ai",
+    "coding-assistant",
+    "multi-agent",
+    "llm",
+    "typescript",
+    "cli",
+    "automation",
+    "code-generation",
+    "testing",
+    "quality-assurance"
+  ],
+  "author": "Gonzih",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gonzih/feral-code-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gonzih/feral-code-agent/issues"
+  },
+  "homepage": "https://github.com/Gonzih/feral-code-agent#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.3.0",
@@ -20,5 +52,7 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.4.1",
     "typescript": "^5.9.2"
-  }
+  },
+  "peerDependencies": {},
+  "dependencies": {}
 }
