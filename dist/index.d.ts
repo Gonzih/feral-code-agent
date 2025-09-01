@@ -1,2 +1,2 @@
-import './cli/index';
+export {};
 //# sourceMappingURL=index.d.ts.map

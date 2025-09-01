@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+
+// Simple launcher that doesn't require external dependencies
+const path = require('path');
+const fs = require('fs');
+
+// Check if any arguments are provided
+const hasArgs = process.argv.length > 2;
+
+// If no arguments, launch the immersive oracle
+if (!hasArgs) {
+  console.log('🧙‍♂️ Feral Code Oracle - Multi-Agent Coding Adventure');
+  console.log('Loading immersive interface...\n');
+
+  // Try to load the immersive CLI
+  try {
+    require(path.join(__dirname, '../dist/cli/immersive.js'));
+  } catch (error) {
+    console.error('❌ Error loading immersive interface:', error.message);
+    console.log('\n💡 Try running: feral-code oracle');
+    process.exit(1);
+  }
+} else {
+  // Handle command line arguments
+  const args = process.argv.slice(2);
+  const command = args[0];
+
+  if (command === '--version' || command === '-v') {
+    const packagePath = path.join(__dirname, '../package.json');
+    const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+    console.log(pkg.version);
+  } else if (command === '--help' || command === '-h') {
+    console.log(`
+🧙‍♂️ Feral Code Oracle - Multi-Agent Coding Adventure
+
+USAGE:
+  feral-code                    Launch immersive oracle interface
+  feral-code <command> [options]
+
+COMMANDS:
+  oracle                        Launch immersive oracle interface
+  task <description>           Process a coding task
+  quest <description>          Start a coding quest
+  --version, -v                Show version
+  --help, -h                   Show this help
+
+EXAMPLES:
+  feral-code
+  feral-code task "Create a React component"
+  feral-code quest "Build a REST API"
+    `);
+  } else {
+    // Try to load the full CLI for other commands
+    try {
+      require(path.join(__dirname, '../dist/cli/index.js'));
+    } catch (error) {
+      console.error('❌ Error:', error.message);
+      process.exit(1);
+    }
+  }
+}
